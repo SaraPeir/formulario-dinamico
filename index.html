@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario dinamico</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/loadScrips.js" type="text/javascript" async="async"></script>
+        <!-- <script src="js/createArray.js" type="text/javascript" async="async"></script>
+        <script src="js/createForm.js" type="text/javascript" async="async"></script> -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="header-style bg-primary text-white">Creador dinamico de Formularios</header>
+        <div class="configuration-container">
+            <div class="container">
+                <div class="row" id="array-form">
+                    <div id="configuration-single-field" class="configuration-single-field col-12 col-sm-6 col-lg-3">
+                        <input onchange="selectCheckbox(0)" class="checkbox-input" type="checkbox" name="text" id="name">Name <br>
+                        <input onchange="selectRequiredField(0)" type="checkbox" id="name" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled> Campo obligatorio <br>
+                    </div>
+
+                    <div id="configuration-single-field" class="configuration-single-field col-12 col-sm-6 col-lg-3">
+                        <input onchange="selectCheckbox(1)" class="checkbox-input" type="checkbox" name="text" id="surname">Surname<br>
+                        <input onchange="selectRequiredField(1)" type="checkbox" id="surname" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled> Campo obligatorio <br>
+                    </div>   
+
+                    <div id="configuration-single-field" class="configuration-single-field col-12 col-sm-6 col-lg-3">
+                        <input onchange="selectCheckbox(2)" class="checkbox-input" type="checkbox" name="number" id="phone">Phone<br>
+                        <input onchange="selectRequiredField(2)" type="checkbox" id="phone" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled> Campo obligatorio <br>
+                    </div>
+
+                    <div id="configuration-single-field" class="configuration-single-field col-12 col-sm-6 col-lg-3">
+                        <input onchange="selectCheckbox(3)" class="checkbox-input" type="checkbox" name="email" id="email">Email<br>
+                        <input onchange="selectRequiredField(3)" type="checkbox" id="email" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled> Campo obligatorio <br>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="createForm(getArray())">getArray</button>
+            </div>
+        </div>
+    
+        <div class="form-container">Button container</div>
+    </body>
+</html>
