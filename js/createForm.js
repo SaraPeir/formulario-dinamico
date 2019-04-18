@@ -34,6 +34,10 @@ function createForm(array){
     array.length = 0;
 }
 
+function triggerEvent(array) {
+    return array.length > 0 && createForm(array); 
+}
+
 
 // para el campo dinamico, el array viene generado desde otra funcion
 // el formulario para generar array viene pintado en el DOM (los radios estan ya todos seleccionados)
