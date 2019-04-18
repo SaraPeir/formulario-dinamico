@@ -1,12 +1,10 @@
 'use strict'
 
-// document.querySelector('#array-form');
 document.querySelectorAll('#configuration-single-field');
 
 let x = document.querySelectorAll("#configuration-single-field > .checkbox-input");
 let y = document.querySelectorAll("#configuration-single-field > .checkbox-input-isRequired");
-console.log('x', x);
-console.log('y', y);
+let requiredFieldText = document.querySelectorAll("#configuration-single-field > #required-field");
 
 let array = [];
 
@@ -14,6 +12,7 @@ function selectCheckbox(i) {
     if (x[i].checked) {
         console.log(x[i].name, x[i].id);
         y[i].disabled = false;
+        requiredFieldText[i].setAttribute('class', 'typo2');
         let obj = {
             type: x[i].name,
             name: x[i].id,
@@ -32,8 +31,6 @@ function selectCheckbox(i) {
 
 function selectRequiredField(i) {
     let index = array.findIndex(x => x.id === y[i].id);
-        console.log('index', index);
-        console.log('y[i].id', y[i].id);
     if (y[i].checked) {
         array[index].required = true;
     } 
@@ -46,24 +43,27 @@ function selectRequiredField(i) {
 
 function getArray(){
     console.log('getArray', array);
-    return array;
-}
-
-function getArray2(array){
-    console.log('getArray2', array);
+    
     return array;
 }
 
 function reset(){
-    for(let i=0; i<array.length; i++){
+    for(let i=0; i<x.length; i++){
         if (x[i].checked) {
             x[i].checked = false;
         }
+    }
+
+    for(let i=0; i<y.length; i++){
         if (y[i].checked) {
             y[i].disabled = true;
             y[i].checked = false;
         }
     }
-    array.length = 0;
-    console.log(array);
+
+    for(let i=0; i<requiredFieldText.length; i++){
+        if (requiredFieldText[i].getAttribute('class') == "typo2") {
+            requiredFieldText[i].setAttribute('class', 'typo2-disabled');
+        }
+    }
 }

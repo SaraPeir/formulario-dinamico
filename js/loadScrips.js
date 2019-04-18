@@ -22,6 +22,6 @@ function loadScripts(array = []) {
         console.log('Añade un array de modulos de JS')
     }
 }
+
 loadScripts(['js/createArray.js', 'js/createForm.js']);
 
-// , 'js/consoleLog1.js', 'js/consoleLog2.js'

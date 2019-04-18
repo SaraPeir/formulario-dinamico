@@ -1,15 +1,17 @@
 'use strict'
 
-let formContainer = document.querySelector('.form-container');
+let formsContainer = document.querySelector('.forms-container');
 
 function createForm(array){
     let form = document.createElement("form");
+    form.setAttribute("class", "form-container border border-primary");
     let inputContainer = document.createElement("div");
     let formButton = document.createElement("button");
     formButton.setAttribute('type', 'submit');
+    formButton.setAttribute('class', 'btn btn-primary');
     formButton.innerHTML = 'Submit';
 
-    formContainer.appendChild(form);
+    formsContainer.appendChild(form);
     form.appendChild(inputContainer);
     form.appendChild(formButton);
 
@@ -17,17 +19,18 @@ function createForm(array){
     if(array.length > 0) {
         for(let i = 0; i < array.length; i++){
             inputs = array.map(obj => 
-                `<div class="form-box"><input type="${obj.type}"
+                `<input class="input-style" type="${obj.type}"
                     name="${obj.name}"
                    id="${obj.id}"
                    placeholder="${obj.name}"
                    ${obj.required ? "required" : ''}
             >
-            </input></div>`).join();
+            </input>`).join('');
         }
         inputContainer.innerHTML = inputs;
     }
     reset();
+    array.length = 0;
 }
 
 
