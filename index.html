@@ -12,35 +12,33 @@
     </head>
     <body>
         <header class="header-style bg-primary text-white">Creador dinamico de Formularios</header>
-        <div class="configuration-container">
-            <div class="container">
+            <div class="container mx-auto my-4">
                 <div class="row" id="array-form">
-                    <div id="configuration-single-field" class="configuration-single-field border border-primary col-12 col-sm-6 col-lg-3">
+                    <div id="configuration-single-field" class="p-4 border border-primary col-12 col-sm-6 col-lg-3">
                         <input onchange="selectCheckbox(0)" class="checkbox-input" type="checkbox" name="text" id="name"><span class="typo1">Nombre</span><br>
                         <input onchange="selectRequiredField(0)" type="checkbox" id="name" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled><span id="required-field" class="typo2-disabled">Campo obligatorio</span><br>
                     </div>
 
-                    <div id="configuration-single-field" class="configuration-single-field border border-primary col-12 col-sm-6 col-lg-3">
+                    <div id="configuration-single-field" class="p-4 border border-primary col-12 col-sm-6 col-lg-3">
                         <input onchange="selectCheckbox(1)" class="checkbox-input" type="checkbox" name="text" id="surname"><span class="typo1">Apellido</span><br>
                         <input onchange="selectRequiredField(1)" type="checkbox" id="surname" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled><span id="required-field" class="typo2-disabled">Campo obligatorio</span><br>
                     </div>   
 
-                    <div id="configuration-single-field" class="configuration-single-field border border-primary col-12 col-sm-6 col-lg-3">
+                    <div id="configuration-single-field" class="p-4 border border-primary col-12 col-sm-6 col-lg-3">
                         <input onchange="selectCheckbox(2)" class="checkbox-input" type="checkbox" name="number" id="phone"><span class="typo1">Teléfono</span><br>
                         <input onchange="selectRequiredField(2)" type="checkbox" id="phone" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled><span id="required-field" class="typo2-disabled">Campo obligatorio</span><br>
                     </div>
 
-                    <div id="configuration-single-field" class="configuration-single-field border border-primary col-12 col-sm-6 col-lg-3">
+                    <div id="configuration-single-field" class="p-4 border border-primary col-12 col-sm-6 col-lg-3">
                         <input onchange="selectCheckbox(3)" class="checkbox-input" type="checkbox" name="email" id="email"><span class="typo1">Correo eletrónico</span><br>
                         <input onchange="selectRequiredField(3)" type="checkbox" id="email" name="isRequired" value="yes" class="checkbox-input-isRequired" disabled><span id="required-field" class="typo2-disabled">Campo obligatorio</span><br>
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <button class="btn btn-primary col-6 col-md-8" onclick="createForm(getArray())">Crea tu formulario</button>
+                </div>
             </div>
-            <div class="button-container">
-                <button class="btn btn-primary" onclick="createForm(getArray())">Crea tu formulario</button>
-            </div>
-        </div>
     
-        <div class="forms-container"></div>
+        <div id="forms-container" class="container mx-auto row justify-content-center"></div>
     </body>
 </html>

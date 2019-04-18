@@ -24,42 +24,5 @@ header {
     font-size: 22px;
 }
 
-.configuration-container {
-    width: 100%;
-    margin: 20px auto;
-}
 
-.configuration-single-field { 
-    padding: 10px; 
-}
 
-.getArray-button {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.btn {
-    width: 50%;
-    cursor: pointer;
-}
-
-.button-container {
-    text-align: center;
-}
-
-.input-style {
-    margin: 10px;
-}
-
-.forms-container {
-    width: 100%;
-}
-
-.form-container {
-    text-align: center;
-    padding: 10px;
-    background-color: bisque;
-    width: 70%;
-    margin: 40px auto;
-}
