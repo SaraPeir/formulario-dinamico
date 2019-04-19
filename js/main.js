@@ -1,6 +1,6 @@
 'use strict'
 
-document.querySelectorAll('#configuration-single-field');
+let formsContainer = document.querySelector('#forms-container');
 
 let x = document.querySelectorAll("#configuration-single-field > .checkbox-input");
 let y = document.querySelectorAll("#configuration-single-field > .checkbox-input-isRequired");
@@ -8,7 +8,7 @@ let requiredFieldText = document.querySelectorAll("#configuration-single-field >
 
 let array = [];
 
-function selectCheckbox(i) {
+function selectCheckbox(array=[], i) {
     if (x[i].checked) {
         console.log(x[i].name, x[i].id);
         y[i].disabled = false;
@@ -29,7 +29,7 @@ function selectCheckbox(i) {
     }
 }
 
-function selectRequiredField(i) {
+function selectRequiredField(array=[], i) {
     let index = array.findIndex(x => x.id === y[i].id);
     if (y[i].checked) {
         array[index].required = true;
@@ -43,7 +43,6 @@ function selectRequiredField(i) {
 
 function getArray(){
     console.log('getArray', array);
-    
     return array;
 }
 
@@ -66,4 +65,40 @@ function reset(){
             requiredFieldText[i].setAttribute('class', 'typo2-disabled');
         }
     }
+}
+
+function createForm(array){
+    let form = document.createElement("form");
+    form.setAttribute("class", "col-8 border border-primary bg-light py-4 my-4");
+    let inputContainer = document.createElement("div");
+    inputContainer.setAttribute('class', 'row justify-content-center');
+    let formButton = document.createElement("button");
+    formButton.setAttribute('type', 'submit');
+    formButton.setAttribute('class', 'btn btn-primary col-6');
+    formButton.innerHTML = 'Submit';
+
+    formsContainer.appendChild(form);
+    form.appendChild(inputContainer);
+
+    let inputs;
+    if(array.length > 0) {
+        for(let i = 0; i < array.length; i++){
+            inputs = array.map(obj => 
+                `<input class="mb-3 col-10" type="${obj.type}"
+                    name="${obj.name}"
+                   id="${obj.id}"
+                   placeholder="${obj.name}${obj.required ? "*" : ''}"
+                   ${obj.required ? "required" : ''}
+            >
+            </input>`).join('');
+        }
+        inputContainer.innerHTML = inputs;
+        inputContainer.appendChild(formButton);
+    }
+    reset();
+    array.length = 0;
+}
+
+function triggerEvent(array) {
+    return array.length > 0 && createForm(array); 
 }
