@@ -67,7 +67,7 @@ function reset(){
     }
 }
 
-function createForm(array){
+function createForm(array, callback){
     let form = document.createElement("form");
     form.setAttribute("class", "col-8 border border-primary bg-light py-4 my-4");
     let inputContainer = document.createElement("div");
@@ -95,10 +95,11 @@ function createForm(array){
         inputContainer.innerHTML = inputs;
         inputContainer.appendChild(formButton);
     }
-    reset();
+
+    callback && callback();
     array.length = 0;
 }
 
-function triggerEvent(array) {
-    return array.length > 0 && createForm(array); 
+function triggerEvent(array, callback) {
+    return array.length > 0 && createForm(array, callback); 
 }
