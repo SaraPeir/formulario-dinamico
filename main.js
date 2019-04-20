@@ -33,8 +33,7 @@ function selectRequiredField(array=[], i) {
     let index = array.findIndex(x => x.id === y[i].id);
     if (y[i].checked) {
         array[index].required = true;
-    } 
-    else {
+    } else {
         array[index].required = false;
     }
     console.log('array', array);
@@ -66,7 +65,7 @@ function reset(){
     }
 }
 
-function createForm(array, callback){
+function createForm(array=[], callback){
     let form = document.createElement("form");
     form.setAttribute("class", "col-8 border border-primary bg-light py-4 my-4");
     let inputContainer = document.createElement("div");
@@ -87,12 +86,12 @@ function createForm(array, callback){
                 id="${obj.id}"
                 placeholder="${obj.name}${obj.required ? "*" : ''}"
                 ${obj.required ? "required" : ''}
-        >
-        </input>`).join('');
+            >
+            </input>`).join('');
         inputContainer.innerHTML = inputs;
         inputContainer.appendChild(formButton);
 
-        let storageArray = JSON.parse(localStorage.getItem('formArray'))
+        let storageArray = JSON.parse(localStorage.getItem('formArray'));
         
         storageArray && storageArray.push(array);
         console.log('storageArray', storageArray);
@@ -103,7 +102,7 @@ function createForm(array, callback){
     } 
 }
 
-function triggerEvent(array, callback) {
+function triggerEvent(array=[], callback) {
     return array.length > 0 && createForm(array, callback); 
 }
 
